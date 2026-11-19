@@ -158,6 +158,33 @@ document.getElementById("loanForm").addEventListener("submit",event=>{
 });
 renderBooks();
 
+const profileMenu=document.getElementById("profileMenu");
+const profileMenuButton=document.getElementById("profileMenuButton");
+const loginScreen=document.getElementById("loginScreen");
+
+profileMenuButton.addEventListener("click",event=>{
+  event.stopPropagation();
+  const isOpen=profileMenu.classList.toggle("open");
+  profileMenuButton.setAttribute("aria-expanded",String(isOpen));
+});
+document.addEventListener("click",event=>{
+  if(!profileMenu.contains(event.target)&&event.target!==profileMenuButton){
+    profileMenu.classList.remove("open");
+    profileMenuButton.setAttribute("aria-expanded","false");
+  }
+});
+document.getElementById("logoutButton").addEventListener("click",()=>{
+  profileMenu.classList.remove("open");
+  profileMenuButton.setAttribute("aria-expanded","false");
+  loginScreen.classList.add("open");
+  showToast("تم تسجيل الخروج بنجاح");
+});
+document.getElementById("loginForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  loginScreen.classList.remove("open");
+  showToast("تم تسجيل الدخول بنجاح");
+});
+
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
 }

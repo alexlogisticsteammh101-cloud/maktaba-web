@@ -31,7 +31,12 @@
           <div class="profile">
             <div class="avatar">أح</div>
             <div><strong>أحمد حسن</strong><span>مدير المكتبة</span></div>
-            <button class="icon-button" aria-label="المزيد">⋮</button>
+            <div class="profile-menu-wrap">
+              <button class="icon-button" id="profileMenuButton" aria-label="خيارات الحساب" aria-expanded="false">⋮</button>
+              <div class="profile-menu" id="profileMenu">
+                <button id="logoutButton">تسجيل الخروج</button>
+              </div>
+            </div>
           </div>
         </div>
       </aside>
@@ -103,6 +108,19 @@
         </div>
       </main>
     </div>
+
+    <section class="login-screen" id="loginScreen" aria-label="تسجيل الدخول">
+      <form class="login-card" id="loginForm">
+        <div class="brand-mark login-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M7 10.5A5.5 5.5 0 0 1 12.5 5H22v31h-9.5A5.5 5.5 0 0 0 7 41.5v-31Zm34 0A5.5 5.5 0 0 0 35.5 5H26v31h9.5A5.5 5.5 0 0 1 41 41.5v-31Z"/></svg>
+        </div>
+        <h1>مكتبة النهضة</h1>
+        <p>سجل الدخول لإدارة المكتبة</p>
+        <label>البريد الإلكتروني<input name="email" type="email" value="ahmed@example.com" required /></label>
+        <label>كلمة المرور<input name="password" type="password" value="123456" required /></label>
+        <button type="submit" class="primary-button">تسجيل الدخول</button>
+      </form>
+    </section>
 
     <div class="modal-backdrop" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="bookModalTitle">
       <form class="modal" id="bookForm">
