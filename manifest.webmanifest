@@ -1,0 +1,15 @@
+{
+  "name": "مكتبة النهضة",
+  "short_name": "مكتبة النهضة",
+  "description": "إدارة الكتب والاستعارات والأعضاء",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f5",
+  "theme_color": "#177c61",
+  "icons": [
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}

@@ -91,3 +91,7 @@ if(localStorage.getItem("maktaba-theme")==="dark")document.body.classList.add("d
 function showToast(message){const toast=document.getElementById("toast");toast.textContent=message;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2200)}
 ["newLoanButton","addMemberButton"].forEach(id=>document.getElementById(id).addEventListener("click",()=>showToast("هذه العملية جاهزة للربط بقاعدة البيانات")));
 renderBooks();
+
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+}
