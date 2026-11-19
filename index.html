@@ -113,6 +113,28 @@
         <div class="modal-actions"><button type="button" class="secondary-button" data-close-modal>إلغاء</button><button type="submit" class="primary-button">حفظ الكتاب</button></div>
       </form>
     </div>
+    <div class="modal-backdrop" id="memberModal" role="dialog" aria-modal="true" aria-labelledby="memberModalTitle">
+      <form class="modal" id="memberForm">
+        <div class="modal-heading"><div><p>الأعضاء</p><h2 id="memberModalTitle">إضافة عضو جديد</h2></div><button type="button" class="icon-button" data-close-member>×</button></div>
+        <label>اسم العضو<input name="name" required placeholder="مثال: محمد علي" /></label>
+        <label>البريد الإلكتروني<input name="email" type="email" required placeholder="name@example.com" /></label>
+        <div class="modal-actions"><button type="button" class="secondary-button" data-close-member>إلغاء</button><button type="submit" class="primary-button">حفظ العضو</button></div>
+      </form>
+    </div>
+    <div class="modal-backdrop" id="loanModal" role="dialog" aria-modal="true" aria-labelledby="loanModalTitle">
+      <form class="modal" id="loanForm">
+        <div class="modal-heading"><div><p>الاستعارات</p><h2 id="loanModalTitle">استعارة جديدة</h2></div><button type="button" class="icon-button" data-close-loan>×</button></div>
+        <div class="form-row">
+          <label>العضو<select name="member" id="loanMember" required></select></label>
+          <label>الكتاب<select name="book" id="loanBook" required></select></label>
+        </div>
+        <div class="form-row">
+          <label>تاريخ الاستعارة<input name="borrow" type="date" required /></label>
+          <label>موعد الإرجاع<input name="due" type="date" required /></label>
+        </div>
+        <div class="modal-actions"><button type="button" class="secondary-button" data-close-loan>إلغاء</button><button type="submit" class="primary-button">تسجيل الاستعارة</button></div>
+      </form>
+    </div>
     <div class="toast" id="toast"></div>
     <script src="app.js"></script>
   </body>
