@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#126b52" />
+    <title>مكتبة النهضة</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M7 10.5A5.5 5.5 0 0 1 12.5 5H22v31h-9.5A5.5 5.5 0 0 0 7 41.5v-31Zm34 0A5.5 5.5 0 0 0 35.5 5H26v31h9.5A5.5 5.5 0 0 1 41 41.5v-31Z"/></svg>
+          </div>
+          <div><strong>مكتبة النهضة</strong><span>إدارة المكتبة</span></div>
+        </div>
+
+        <nav class="nav-list" aria-label="التنقل الرئيسي">
+          <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌂</span><span>لوحة التحكم</span></button>
+          <button class="nav-item" data-view="catalog"><span class="nav-icon">▤</span><span>فهرس الكتب</span></button>
+          <button class="nav-item" data-view="loans"><span class="nav-icon">↗</span><span>الاستعارات</span></button>
+          <button class="nav-item" data-view="members"><span class="nav-icon">♙</span><span>الأعضاء</span></button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="nav-item" id="themeToggle"><span class="nav-icon">◐</span><span>الوضع الليلي</span></button>
+          <div class="profile">
+            <div class="avatar">أح</div>
+            <div><strong>أحمد حسن</strong><span>مدير المكتبة</span></div>
+            <button class="icon-button" aria-label="المزيد">⋮</button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <button class="menu-button" id="menuButton" aria-label="فتح القائمة">☰</button>
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="globalSearch" type="search" placeholder="ابحث عن كتاب أو عضو..." />
+            <kbd>/</kbd>
+          </label>
+          <div class="top-actions">
+            <button class="icon-button notification" aria-label="الإشعارات">♧<i></i></button>
+          </div>
+        </header>
+
+        <div class="content">
+          <section id="dashboardView" class="view active">
+            <div class="page-heading">
+              <div><p class="eyebrow">الأربعاء، 19 نوفمبر</p><h1>صباح الخير، أحمد 👋</h1></div>
+              <button class="primary-button" id="addBookButton"><span>＋</span> إضافة كتاب</button>
+            </div>
+
+            <div class="stats-grid">
+              <article class="stat-card"><div class="stat-icon green">▤</div><div><span>إجمالي الكتب</span><strong id="totalBooks">1,284</strong><small><b>↗ 4.2%</b> عن الشهر الماضي</small></div></article>
+              <article class="stat-card"><div class="stat-icon amber">↗</div><div><span>الكتب المستعارة</span><strong>186</strong><small><b class="neutral">14</b> مستحق اليوم</small></div></article>
+              <article class="stat-card"><div class="stat-icon blue">♙</div><div><span>الأعضاء النشطون</span><strong>842</strong><small><b>↗ 8.1%</b> عضوًا جديدًا</small></div></article>
+              <article class="stat-card"><div class="stat-icon rose">⌁</div><div><span>متأخرات التسليم</span><strong>23</strong><small><b class="danger">5</b> تتطلب متابعة</small></div></article>
+            </div>
+
+            <div class="dashboard-grid">
+              <section class="panel books-panel">
+                <div class="panel-heading"><div><p>المكتبة</p><h2>أحدث الإضافات</h2></div><button class="text-button" data-view-link="catalog">عرض الكل ←</button></div>
+                <div class="book-grid" id="bookGrid"></div>
+              </section>
+
+              <section class="panel activity-panel">
+                <div class="panel-heading"><div><p>النشاط اليومي</p><h2>آخر العمليات</h2></div></div>
+                <div class="activity-list" id="activityList"></div>
+              </section>
+            </div>
+          </section>
+
+          <section id="catalogView" class="view">
+            <div class="page-heading"><div><p class="eyebrow">المكتبة</p><h1>فهرس الكتب</h1></div><button class="primary-button" id="addBookButton2"><span>＋</span> إضافة كتاب</button></div>
+            <div class="panel">
+              <div class="catalog-toolbar">
+                <div class="filter-pills" id="filterPills">
+                  <button class="active" data-category="الكل">الكل</button><button data-category="روايات">روايات</button><button data-category="تطوير ذات">تطوير ذات</button><button data-category="علمية">علمية</button><button data-category="دينية">دينية</button>
+                </div>
+                <select id="sortSelect" aria-label="ترتيب الكتب"><option value="title">الاسم</option><option value="year">الأحدث</option></select>
+              </div>
+              <div class="catalog-grid" id="catalogGrid"></div>
+            </div>
+          </section>
+
+          <section id="loansView" class="view">
+            <div class="page-heading"><div><p class="eyebrow">الدائرة العامة</p><h1>الاستعارات</h1></div><button class="primary-button" id="newLoanButton"><span>＋</span> استعارة جديدة</button></div>
+            <div class="panel table-panel">
+              <div class="table-wrap"><table><thead><tr><th>العضو</th><th>الكتاب</th><th>تاريخ الاستعارة</th><th>موعد الإرجاع</th><th>الحالة</th><th></th></tr></thead><tbody id="loansTable"></tbody></table></div>
+            </div>
+          </section>
+
+          <section id="membersView" class="view">
+            <div class="page-heading"><div><p class="eyebrow">المجتمع</p><h1>الأعضاء</h1></div><button class="primary-button" id="addMemberButton"><span>＋</span> إضافة عضو</button></div>
+            <div class="members-grid" id="membersGrid"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="bookModalTitle">
+      <form class="modal" id="bookForm">
+        <div class="modal-heading"><div><p>الفهرس</p><h2 id="bookModalTitle">إضافة كتاب جديد</h2></div><button type="button" class="icon-button" data-close-modal>×</button></div>
+        <label>عنوان الكتاب<input name="title" required placeholder="مثال: ذاكرة الجسد" /></label>
+        <div class="form-row"><label>المؤلف<input name="author" required placeholder="اسم المؤلف" /></label><label>التصنيف<select name="category"><option>روايات</option><option>تطوير ذات</option><option>علمية</option><option>دينية</option></select></label></div>
+        <div class="form-row"><label>سنة النشر<input name="year" type="number" value="2026" /></label><label>عدد النسخ<input name="copies" type="number" min="1" value="1" /></label></div>
+        <div class="modal-actions"><button type="button" class="secondary-button" data-close-modal>إلغاء</button><button type="submit" class="primary-button">حفظ الكتاب</button></div>
+      </form>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
